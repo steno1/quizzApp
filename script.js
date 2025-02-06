@@ -50,3 +50,14 @@ const questions = [
         correctAnswer: "Rivers United"
     }
 ];
+
+//making the questions to be randomed
+
+function RandomQuestions(array){
+for(let i=0; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [array[i], array[j]]=[array[j], array[i]]
+
+
+}
+}
