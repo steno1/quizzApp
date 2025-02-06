@@ -61,3 +61,16 @@ for(let i=0; i>0; i--){
 
 }
 }
+
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+const questionText = document.getElementById("question-text");
+const answersContainer = document.getElementById("answers-container");
+const progressText = document.getElementById("progress-text");
+const nextButton = document.getElementById("next-button");
+const finalScoreText = document.getElementById("final-score");
+const resultsContainer = document.getElementById("results-container");
+const quizContainer = document.getElementById("quiz-container");
+const restartButton = document.getElementById("restart-button");
