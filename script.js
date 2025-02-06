@@ -74,3 +74,20 @@ const finalScoreText = document.getElementById("final-score");
 const resultsContainer = document.getElementById("results-container");
 const quizContainer = document.getElementById("quiz-container");
 const restartButton = document.getElementById("restart-button");
+
+
+function loadQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    questionText.textContent = currentQuestion.question;
+    answersContainer.innerHTML = ""; 
+
+    currentQuestion.options.forEach(option => {
+        const answerDiv = document.createElement("div");
+        answerDiv.textContent = option;
+        answerDiv.classList.add("answer-option");
+        answerDiv.addEventListener("click", () => handleAnswer(option, answerDiv));
+        answersContainer.appendChild(answerDiv);
+    });
+
+    progressText.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
+}
