@@ -74,10 +74,6 @@ Here are some ways you can contribute:
 
 ⏱️ Add new features like a timer or high score tracking.
 
-📅 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 💟 Acknowledgements
 
 🌟 Inspired by simple quiz apps found across the web.
