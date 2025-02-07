@@ -51,17 +51,13 @@ const questions = [
     }
 ];
 
-//making the questions to be randomed
-
-function RandomQuestions(array){
-for(let i=0; i>0; i--){
-    const j = Math.floor(Math.random()*(i+1));
-    [array[i], array[j]]=[array[j], array[i]]
-
-
+// make questions to be randomed
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; 
+    }
 }
-}
-
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -74,7 +70,6 @@ const finalScoreText = document.getElementById("final-score");
 const resultsContainer = document.getElementById("results-container");
 const quizContainer = document.getElementById("quiz-container");
 const restartButton = document.getElementById("restart-button");
-
 
 function loadQuestion() {
     const currentQuestion = questions[currentQuestionIndex];
@@ -116,7 +111,7 @@ function handleAnswer(selectedAnswer, answerDiv) {
 function showResults() {
     quizContainer.classList.add("hidden");
     resultsContainer.classList.remove("hidden");
-    finalScoreText.textContent = `Your final score is: ${score} / ${questions.length}`;
+    finalScoreText.textContent = `Your final score: ${score} / ${questions.length}`;
 }
 
 nextButton.addEventListener("click", () => {
@@ -129,3 +124,20 @@ nextButton.addEventListener("click", () => {
         showResults();
     }
 });
+
+restartButton.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    score = 0;
+    quizContainer.classList.remove("hidden");
+    resultsContainer.classList.add("hidden");
+    shuffleArray(questions); 
+    loadQuestion();
+    nextButton.disabled = true;
+});
+
+
+shuffleArray(questions);
+
+
+loadQuestion();
+nextButton.disabled = true;
