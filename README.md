@@ -31,45 +31,34 @@ To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repository:**
 
+   ```bash
    git clone https://github.com/steno1/quizzApp.git
 
-🚀 Getting Started
+   
+Navigate to the project directory:
 
-🔧 Navigate to the project directory:
+cd quizzApp
+Open the index.html file in your browser:
 
-cd quizzApp  
+Double-click the index.html file to open it in your default web browser.
 
-🌐 Open the index.html file in your browser:
-Option 1: Double-click the index.html file to open it in your default web browser.
-Option 2: Right-click the index.html file and select "Open with" to choose your preferred browser.
-📂 Files Overview
-index.html
-Contains the HTML structure for the quiz app.
+Files Overview
+index.html: Contains the HTML structure for the quiz app.
+style.css: Contains the CSS for styling the app and ensuring mobile responsiveness.
+script.js: JavaScript code that handles quiz logic, including question loading, answer checking, and score tracking.
+CSS Styling
+The app is styled with mobile responsiveness in mind, using media queries to adapt the layout on different screen sizes.
 
-style.css
-Provides the CSS styling for the app, ensuring a clean look and mobile responsiveness.
+Contribution
+Contributions are welcome! Feel free to fork this project and submit pull requests. Here are some ways you can contribute:
 
-script.js
-Handles the quiz logic, including:
+Add more questions to the quiz.
+Improve the UI design.
+Add new features like a timer or high score tracking.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Loading questions
-Checking answers
-Tracking scores
-
-🎨 CSS Styling
-The app is designed with mobile responsiveness in mind. Media queries are used to ensure the layout adapts seamlessly across different screen sizes, providing a smooth user experience on both desktop and mobile devices.
-
-🤝 Contribution
-Contributions are welcome! 🎉 Feel free to fork this project and submit a pull request. Here are some ways you can contribute:
-
-➕ Add more questions to expand the quiz content.
-🎨 Improve the UI design to make the app more visually appealing.
-⏱️ Add new features like a timer or high score tracking.
-
-📜 License
-This project is licensed under the MIT License.
-See the LICENSE file for details.
-
-🙌 Acknowledgements
+Acknowledgements
 Inspired by simple quiz apps found across the web.
-References: MDN Web Docs for HTML, CSS, and JavaScript concepts.
+Used MDN Web Docs as a reference for HTML, CSS, and JavaScript concepts.
+
