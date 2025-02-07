@@ -13,6 +13,7 @@ body {
     height: 100vh;
     flex-direction: column;
     color: #333;
+    padding: 10px; 
 }
 
 #quiz-container, #results-container {
@@ -22,7 +23,9 @@ body {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 5px 1px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 5px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 5px 1px rgba(0,0,0,0.75); 
 }
 
 .hidden {
@@ -93,9 +96,7 @@ button:hover {
     pointer-events: none;     
     opacity: 0.6;              
    
-   
 }
-
 
 #next-button-container {
     margin-top: 20px;
@@ -119,4 +120,44 @@ button:hover {
 
 #restart-button:hover {
     background-color: #1976D2;
+}
+
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+    body {
+        padding: 5px; 
+        
+    }
+
+    #quiz-container, #results-container {
+        padding: 15px;
+        box-shadow: 0px 4px 5px 1px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 4px 5px 1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 4px 5px 1px rgba(0,0,0,0.75); 
+        border-radius: 5px;
+    }
+
+    h2 {
+        font-size: 1.2rem; 
+        
+        
+    }
+
+    button, #answers-container div, #restart-button {
+        padding: 10px 15px;
+        font-size: 0.9rem; 
+    }
+
+    #progress-container {
+        font-size: 1rem;
+    }
+
+    #answers-container div {
+        padding: 12px;
+        margin-bottom: 8px;
+     
+    }
+   
+    
 }
