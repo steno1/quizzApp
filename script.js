@@ -91,3 +91,24 @@ function loadQuestion() {
 
     progressText.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
 }
+
+function handleAnswer(selectedAnswer, answerDiv) {
+    const currentQuestion = questions[currentQuestionIndex];
+
+    
+    const allOptions = document.querySelectorAll(".answer-option");
+    allOptions.forEach(option => option.classList.add("disabled"));
+
+    
+    if (selectedAnswer === currentQuestion.correctAnswer) {
+        score++;
+        answerDiv.classList.add("correct");
+    } else {
+        answerDiv.classList.add("incorrect");
+        const correctOption = Array.from(allOptions).find(option => option.textContent === currentQuestion.correctAnswer);
+        correctOption.classList.add("correct");
+    }
+
+    
+    nextButton.disabled = false;
+}
