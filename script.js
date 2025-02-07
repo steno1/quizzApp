@@ -111,7 +111,7 @@ function handleAnswer(selectedAnswer, answerDiv) {
 function showResults() {
     quizContainer.classList.add("hidden");
     resultsContainer.classList.remove("hidden");
-    finalScoreText.textContent = `Your final score: ${score} / ${questions.length}`;
+    finalScoreText.textContent = `Your final score is: ${score} / ${questions.length}`;
 }
 
 nextButton.addEventListener("click", () => {
