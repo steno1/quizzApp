@@ -37,13 +37,33 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+#answers-container {
+    margin-top: 20px;
+}
+
+#answers-container div {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#answers-container div:hover {
+    background-color: #ddd;
+}
+
+#progress-container {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
 
 .answer-option {
     padding: 15px;
@@ -57,18 +77,8 @@ button:hover {
 .answer-option:hover {
     background-color: #ddd;
 }
-
-
-
-.disabled {
-    pointer-events: none;     
-    opacity: 0.6;              
-   
-   
-}
-
 .correct {
-    background-color: #4CAF50 !important; 
+    background-color: #4CAF50 !important;
     color: white !important;
     border: 2px solid #388E3C;
 }
@@ -77,4 +87,36 @@ button:hover {
     background-color: #f44336 !important; 
     color: white !important;
     border: 2px solid #D32F2F;
+}
+
+.disabled {
+    pointer-events: none;     
+    opacity: 0.6;              
+   
+   
+}
+
+
+#next-button-container {
+    margin-top: 20px;
+}
+
+#results-container p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#restart-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart-button:hover {
+    background-color: #1976D2;
 }

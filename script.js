@@ -112,3 +112,20 @@ function handleAnswer(selectedAnswer, answerDiv) {
     
     nextButton.disabled = false;
 }
+
+function showResults() {
+    quizContainer.classList.add("hidden");
+    resultsContainer.classList.remove("hidden");
+    finalScoreText.textContent = `Your final score is: ${score} / ${questions.length}`;
+}
+
+nextButton.addEventListener("click", () => {
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+        nextButton.disabled = true; 
+    } else {
+        showResults();
+    }
+});
