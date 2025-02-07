@@ -34,13 +34,14 @@ To get a local copy up and running, follow these simple steps:
    git clone https://github.com/steno1/quizzApp.git
 
 🚀 Getting Started
+
 🔧 Navigate to the project directory:
 
-cd quizzApp
+cd quizzApp  
+
 🌐 Open the index.html file in your browser:
 Option 1: Double-click the index.html file to open it in your default web browser.
 Option 2: Right-click the index.html file and select "Open with" to choose your preferred browser.
-
 📂 Files Overview
 index.html
 Contains the HTML structure for the quiz app.
