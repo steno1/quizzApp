@@ -163,9 +163,6 @@ const sectionedQuestions = [
         }
     ]
 ];
-
-
-
 let currentSectionIndex = 0;
 let currentQuestionIndex = 0;
 let score = 0;
@@ -218,9 +215,20 @@ function handleAnswer(selectedAnswer, answerDiv) {
 }
 
 function showSectionResults() {
+    const currentSection = sectionedQuestions[currentSectionIndex];
+    const totalQuestionsInSection = currentSection.length;
+    
     quizContainer.classList.add("hidden");
     resultsContainer.classList.remove("hidden");
-    finalScoreText.textContent = `Your score for section ${currentSectionIndex + 1} is: ${score}`;
+    finalScoreText.textContent = `Your score for section ${currentSectionIndex + 1} is: ${score} / ${totalQuestionsInSection}`;
+}
+
+function showResults() {
+    // Final results page after the last section
+    const totalQuestions = sectionedQuestions.reduce((sum, section) => sum + section.length, 0);
+    finalScoreText.textContent = `Your final score is: ${score} / ${totalQuestions}`;
+    nextButton.classList.add("hidden");  // Completely hide the Next button after the last section
+    nextSectionButton.classList.add("hidden");  // Hide the Next Section button
 }
 
 nextButton.addEventListener("click", () => {
@@ -238,14 +246,14 @@ nextButton.addEventListener("click", () => {
 nextSectionButton.addEventListener("click", () => {
     if (currentSectionIndex < sectionedQuestions.length - 1) {
         currentSectionIndex++;
-        currentQuestionIndex = 0;
-        score = 0;
+        currentQuestionIndex = 0;  // Reset question index for new section
+        score = 0;  // Reset score for new section
         quizContainer.classList.remove("hidden");
         resultsContainer.classList.add("hidden");
         loadQuestion();
-        nextButton.disabled = true;
+        nextButton.disabled = true;  // Disable until user selects answer
     } else {
-        showResults();
+        showResults(); // Show results if it's the last section
     }
 });
 
