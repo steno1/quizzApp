@@ -163,6 +163,19 @@ const sectionedQuestions = [
         }
     ]
 ];
+// Function to shuffle an array 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; 
+    }
+}
+
+// Shuffle questions in each section
+sectionedQuestions.forEach(section => {
+    shuffleArray(section); 
+});
+
 let currentSectionIndex = 0;
 let currentQuestionIndex = 0;
 let score = 0;
@@ -224,11 +237,10 @@ function showSectionResults() {
 }
 
 function showResults() {
-    // Final results page after the last section
     const totalQuestions = sectionedQuestions.reduce((sum, section) => sum + section.length, 0);
     finalScoreText.textContent = `Your final score is: ${score} / ${totalQuestions}`;
-    nextButton.classList.add("hidden");  // Completely hide the Next button after the last section
-    nextSectionButton.classList.add("hidden");  // Hide the Next Section button
+    nextButton.classList.add("hidden");  
+    nextSectionButton.classList.add("hidden");  
 }
 
 nextButton.addEventListener("click", () => {
@@ -246,14 +258,14 @@ nextButton.addEventListener("click", () => {
 nextSectionButton.addEventListener("click", () => {
     if (currentSectionIndex < sectionedQuestions.length - 1) {
         currentSectionIndex++;
-        currentQuestionIndex = 0;  // Reset question index for new section
-        score = 0;  // Reset score for new section
+        currentQuestionIndex = 0;  
+        score = 0;  
         quizContainer.classList.remove("hidden");
         resultsContainer.classList.add("hidden");
         loadQuestion();
-        nextButton.disabled = true;  // Disable until user selects answer
+        nextButton.disabled = true;  
     } else {
-        showResults(); // Show results if it's the last section
+        showResults(); 
     }
 });
 
