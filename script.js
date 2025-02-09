@@ -163,7 +163,8 @@ const sectionedQuestions = [
         }
     ]
 ];
-// Function to shuffle an array 
+
+//Make the question random
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -171,14 +172,15 @@ function shuffleArray(array) {
     }
 }
 
-// Shuffle questions in each section
+
 sectionedQuestions.forEach(section => {
     shuffleArray(section); 
 });
 
 let currentSectionIndex = 0;
 let currentQuestionIndex = 0;
-let score = 0;
+let sectionScore = 0;  
+let totalScore = 0;    
 
 const questionText = document.getElementById("question-text");
 const answersContainer = document.getElementById("answers-container");
@@ -216,12 +218,12 @@ function handleAnswer(selectedAnswer, answerDiv) {
     allOptions.forEach(option => option.classList.add("disabled"));
 
     if (selectedAnswer === currentQuestion.correctAnswer) {
-        score++;
+        sectionScore++;  
         answerDiv.classList.add("correct");
     } else {
         answerDiv.classList.add("incorrect");
         const correctOption = Array.from(allOptions).find(option => option.textContent === currentQuestion.correctAnswer);
-        correctOption.classList.add("correct");
+        if (correctOption) correctOption.classList.add("correct");
     }
 
     nextButton.disabled = false;
@@ -230,15 +232,18 @@ function handleAnswer(selectedAnswer, answerDiv) {
 function showSectionResults() {
     const currentSection = sectionedQuestions[currentSectionIndex];
     const totalQuestionsInSection = currentSection.length;
+
+    totalScore += sectionScore;  
     
     quizContainer.classList.add("hidden");
     resultsContainer.classList.remove("hidden");
-    finalScoreText.textContent = `Your score for section ${currentSectionIndex + 1} is: ${score} / ${totalQuestionsInSection}`;
+    finalScoreText.textContent = `Your score for section ${currentSectionIndex + 1} is: ${sectionScore} / ${totalQuestionsInSection}`;
 }
 
 function showResults() {
     const totalQuestions = sectionedQuestions.reduce((sum, section) => sum + section.length, 0);
-    finalScoreText.textContent = `Your final score is: ${score} / ${totalQuestions}`;
+    finalScoreText.textContent = `Your final score is: ${totalScore} / ${totalQuestions}`;
+    
     nextButton.classList.add("hidden");  
     nextSectionButton.classList.add("hidden");  
 }
@@ -258,8 +263,9 @@ nextButton.addEventListener("click", () => {
 nextSectionButton.addEventListener("click", () => {
     if (currentSectionIndex < sectionedQuestions.length - 1) {
         currentSectionIndex++;
-        currentQuestionIndex = 0;  
-        score = 0;  
+        currentQuestionIndex = 0;
+        sectionScore = 0;  
+        
         quizContainer.classList.remove("hidden");
         resultsContainer.classList.add("hidden");
         loadQuestion();
@@ -272,12 +278,24 @@ nextSectionButton.addEventListener("click", () => {
 restartButton.addEventListener("click", () => {
     currentSectionIndex = 0;
     currentQuestionIndex = 0;
-    score = 0;
+    sectionScore = 0;
+    totalScore = 0;
+
+    // Reshuffle questions when restarting the quiz
+    sectionedQuestions.forEach(section => {
+        shuffleArray(section);
+    });
+    
     quizContainer.classList.remove("hidden");
     resultsContainer.classList.add("hidden");
+    
+    nextButton.classList.remove("hidden");    
+    nextSectionButton.classList.remove("hidden"); 
+    
     loadQuestion();
-    nextButton.disabled = true;
+    nextButton.disabled = true;  
 });
+
 
 loadQuestion();
 nextButton.disabled = true;
