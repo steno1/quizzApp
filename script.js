@@ -83,7 +83,7 @@ const sectionedQuestions = [
             correctAnswer: "Six years of primary, six years of secondary education"
         },
         {
-            question: "What is the Nigerian Meteorological Agency (NiMet) planning to unveil on February 4, 2025, and what is its significance?",
+            question: "What did the Nigerian Meteorological Agency (NiMet) unveil on February 4, 2025, and what is its significance?",
             options: ["Annual weather forecast", "New climate change initiative", "Innovative flood control technology", "National air pollution report"],
             correctAnswer: "Annual weather forecast"
         },
